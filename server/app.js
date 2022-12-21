@@ -14,18 +14,11 @@ const app = express();
 mongoose.connect(process.env.MONGODB);
 const db = mongoose.connection;
 
-// Handle the request with HTTP GET method from http://localhost:4040/status
-// app.get("/status", (request, response) => {
-//   // Create the headers for response by default 200
-//   // Create the response body
-//   // End and return the response
-//   response.send(JSON.stringify({ message: "Service healthy" }));
-// });
 // CORS Middleware
 const cors = (req, res, next) => {
   res.setHeader(
     "Access-Control-Allow-Headers",
-    "X-Requested-With,content-type, Accept,Authorization,Origin"
+    "X-Requested-With,content-type,Accept,Authorization,Origin"
   );
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(

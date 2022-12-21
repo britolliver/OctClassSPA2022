@@ -2,10 +2,7 @@ import { Header, Nav, Main, Footer } from "./components";
 import * as store from "./store";
 import Navigo from "navigo";
 import { capitalize } from "lodash";
-import axios from "axios";
-import dotenv from "dotenv";
-
-dotenv.config();
+import axios from "axios";g
 
 const router = new Navigo("/");
 
@@ -49,9 +46,8 @@ function afterRender(state) {
         toppings: toppings
       };
       console.log("request Body", requestData);
-
       axios
-        .post(`${process.env.PIZZA_PLACE_API_URL}`, requestData)
+        .post(`${process.env.PIZZA_PLACE_API_URL}/pizzas`, requestData)
         .then(response => {
           // Push the new pizza onto the Pizza state pizzas attribute, so it can be displayed in the pizza list
           store.Pizza.pizzas.push(response.data);
